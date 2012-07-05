@@ -1,34 +1,35 @@
 package main
 
-import("fmt")
-
+import (
+	"fmt"
+)
 
 type Game struct {
-  name string
-  finished bool
+	name     string
+	finished bool
 }
 
 func (game *Game) state() (state string) {
-  if game.finished {
-    state = "finished"
-    } else {
-      state = "started"
-    }
-    return
+	if game.finished {
+		state = "finished"
+	} else {
+		state = "started"
+	}
+	return
 }
 
 func (game *Game) logStatus() {
-  fmt.Println(game.name)
-  fmt.Println(game.state())
+	fmt.Println(game.name)
+	fmt.Println(game.state())
 }
 
 func (game *Game) finish() {
-  game.finished = true
+	game.finished = true
 }
 
 func main() {
-  game := &Game{name: "New game", finished: false}
-  game.logStatus()
-  game.finish()
-  game.logStatus()
+	game := &Game{name: "New game", finished: false}
+	game.logStatus()
+	game.finish()
+	game.logStatus()
 }
